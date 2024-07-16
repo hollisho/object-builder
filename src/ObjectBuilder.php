@@ -34,7 +34,10 @@ class ObjectBuilder
             if (!isset(static::$instances[$classReflection->getName()])) {
                 static::$instances[$classReflection->getName()] = $classReflection;
             }
-            $objectBuilder = static::$instances[$classReflection->getName()]->newInstance();
+
+            /** @var \ReflectionClass $class */
+            $class = static::$instances[$classReflection->getName()];
+            $objectBuilder = $class->newInstance();
             $objectBuilder->setAttributes($attributes);
             return $objectBuilder;
         } catch (Throwable $throwable) {
