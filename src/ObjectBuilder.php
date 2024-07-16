@@ -3,7 +3,8 @@
 namespace hollisho\objectbuilder;
 
 
-use hollisho\objectbuilder\Traits\ObjectAttributesTrait;
+use hollisho\objectbuilder\Exceptions\BuilderException;
+use Throwable;
 
 /**
  * @author Hollis
@@ -11,24 +12,33 @@ use hollisho\objectbuilder\Traits\ObjectAttributesTrait;
  * Class ObjectBuilder
  * @package hollisho\objectbuilder
  */
-class ObjectBuilder extends BaseObject
+class ObjectBuilder
 {
-    use ObjectAttributesTrait;
-
     /**
      * @var static[]
      */
     private static $instances = [];
 
     /**
-     * ObjectBuilder::build(array)
+     * @param string $class
      * @param array $attributes
-     * @return ObjectBuilder
+     * @return BaseObject
+     * @throws BuilderException
+     * @author Hollis
      */
-    public static function build(array $attributes): ObjectBuilder
+    public static function build(string $class, array $attributes): BaseObject
     {
-        $objectBuilder = new static();
-        $objectBuilder->setAttributes($attributes);
-        return $objectBuilder;
+        try {
+            /** @var BaseObject $objectBuilder */
+            $classReflection = new \ReflectionClass($class);
+            if (!isset(static::$instances[$classReflection->getName()])) {
+                static::$instances[$classReflection->getName()] = $classReflection;
+            }
+            $objectBuilder = static::$instances[$classReflection->getName()]->newInstance();
+            $objectBuilder->setAttributes($attributes);
+            return $objectBuilder;
+        } catch (Throwable $throwable) {
+            throw new BuilderException('Cant build object', 0, $throwable);
+        }
     }
 }
