@@ -10,9 +10,9 @@ composer require hollisho/object-builder
 ## usage
 
 ```php
-$objectBuilder = User::build([
+$objectBuilder = ObjectBuilder::build(User::class, [
     'id' => 1,
-    'username' => 'Hollis Ho'
+    'username' => 'Hollis'
 ]);
 
 //get username
