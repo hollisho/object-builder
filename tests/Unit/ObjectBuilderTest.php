@@ -13,6 +13,6 @@ class ObjectBuilderTest extends TestCase
             'username' => 'Hollis Ho'
         ]);
 
-        var_dump($objectBuilder);
+        var_dump($objectBuilder->username);
     }
 }

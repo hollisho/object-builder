@@ -5,8 +5,8 @@ use hollisho\objectbuilder\ObjectBuilder;
 
 class User extends ObjectBuilder
 {
-    protected $id;
+    public $id;
 
-    protected $username;
+    public $username;
 
 }
