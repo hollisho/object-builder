@@ -1,0 +1,31 @@
+{
+  "name": "hollisho/object-builder",
+  "type": "library",
+  "description": "object-builder",
+  "keywords": [
+    "object",
+    "builder"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Hollis Ho",
+      "email": "he_wenzhi@126.com",
+      "homepage": "https://www.1024plus.com",
+      "role": "Developer"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^8.5",
+    "phpstan/phpstan": "^1.9"
+  },
+  "require": {
+    "php": ">=7.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "hollisho\\objectbuilder\\": "src",
+      "hollisho\\objectbuilder\\tests\\": "tests"
+    }
+  }
+}
