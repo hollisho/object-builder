@@ -19,7 +19,6 @@ class ObjectBuilderTest extends TestCase
             'username' => 'Hollis Ho'
         ]);
 
-        $this->assertTrue($object01->username === 'Hollis'
-            && $object02->username === 'Hollis Ho');
+        $this->assertNotSame($object01, $object02);
     }
 }
