@@ -29,19 +29,19 @@ class ObjectBuilder
     public static function build(string $class, array $attributes): BaseObject
     {
         try {
-            /** @var BaseObject $objectBuilder */
-            $classReflection = new \ReflectionClass($class);
-            if (!isset(static::$instances[$classReflection->getName()])) {
-                static::$instances[$classReflection->getName()] = $classReflection;
+            $key = sprintf("%s_%s", $class, md5(json_encode($attributes)));
+            if (!isset(static::$instances[$key])) {
+                $classReflection = new \ReflectionClass($class);
+                static::$instances[$key] = $classReflection->newInstance();
             }
 
-            /** @var \ReflectionClass $class */
-            $class = static::$instances[$classReflection->getName()];
-            $objectBuilder = $class->newInstance();
+            /** @var BaseObject $objectBuilder */
+            $objectBuilder = static::$instances[$key];
             $objectBuilder->setAttributes($attributes);
             return $objectBuilder;
         } catch (Throwable $throwable) {
             throw new BuilderException('Cant build object', 0, $throwable);
         }
     }
+
 }

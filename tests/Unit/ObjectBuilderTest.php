@@ -9,11 +9,17 @@ class ObjectBuilderTest extends TestCase
 {
     public function test()
     {
-        $objectBuilder = ObjectBuilder::build(User::class, [
+        $object01 = ObjectBuilder::build(User::class, [
             'id' => 1,
             'username' => 'Hollis'
         ]);
 
-        $this->assertTrue($objectBuilder->username === 'Hollis');
+        $object02 = ObjectBuilder::build(User::class, [
+            'id' => 10086,
+            'username' => 'Hollis Ho'
+        ]);
+
+        $this->assertTrue($object01->username === 'Hollis'
+            && $object02->username === 'Hollis Ho');
     }
 }
