@@ -26,7 +26,7 @@ class ObjectBuilder
      * @throws BuilderException
      * @author Hollis
      */
-    public static function build(string $class, array $attributes): BaseObject
+    public static function build(string $class, array $attributes = []): BaseObject
     {
         try {
             $key = sprintf("%s_%s", $class, md5(json_encode($attributes)));
@@ -37,7 +37,11 @@ class ObjectBuilder
 
             /** @var BaseObject $objectBuilder */
             $objectBuilder = static::$instances[$key];
-            $objectBuilder->setAttributes($attributes);
+
+            if (!empty($attributes)) {
+                $objectBuilder->setAttributes($attributes);
+            }
+
             return $objectBuilder;
         } catch (Throwable $throwable) {
             throw new BuilderException('Cant build object', 0, $throwable);
