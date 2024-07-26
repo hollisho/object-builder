@@ -17,6 +17,15 @@ $objectBuilder = ObjectBuilder::build(User::class, [
 
 //get username
 var_dump($objectBuilder->username);
+
+//or 
+$user = HUser::build([
+    'id' => 2,
+    'username' => 'Hollis Ho'
+]);
+
+//get username
+var_dump($user->username);
 ```
 
 ## Unit Test
