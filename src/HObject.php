@@ -10,14 +10,11 @@ class HObject extends BaseObject
 
     /**
      * @param array $attributes
-     * @return HObject
+     * @return BaseObject
+     * @throws Exceptions\BuilderException
      */
-    public static function build(array $attributes = []): HObject
+    public static function build(array $attributes = []): BaseObject
     {
-        $objectBuilder = new static();
-        if (!empty($attributes)) {
-            $objectBuilder->setAttributes($attributes);
-        }
-        return $objectBuilder;
+        return ObjectBuilder::build(static::class, $attributes);
     }
 }
