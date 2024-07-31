@@ -1,9 +1,9 @@
 <?php
-namespace hollisho\objectbuilder\tests\Unit;
+namespace hollisho\objectbuilderTests\Unit;
 
 use hollisho\objectbuilder\ObjectBuilder;
-use hollisho\objectbuilder\tests\Objects\HUser;
-use hollisho\objectbuilder\tests\Objects\User;
+use hollisho\objectbuilderTests\Objects\HUser;
+use hollisho\objectbuilderTests\Objects\User;
 use PHPUnit\Framework\TestCase;
 
 class ObjectBuilderTest extends TestCase

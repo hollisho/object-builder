@@ -1,5 +1,5 @@
 <?php
-namespace hollisho\objectbuilder\tests\Objects;
+namespace hollisho\objectbuilderTests\Objects;
 
 use hollisho\objectbuilder\BaseObject;
 use hollisho\objectbuilder\Traits\ObjectAttributesTrait;
