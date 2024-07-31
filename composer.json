@@ -24,8 +24,18 @@
   },
   "autoload": {
     "psr-4": {
-      "hollisho\\objectbuilder\\": "src",
-      "hollisho\\objectbuilderTests\\": "tests"
-    }
+      "hollisho\\objectbuilder\\": "src/"
+    },
+    "exclude-from-classmap": [
+      "/tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "hollisho\\objectbuilderTests\\": "tests/"
+    },
+    "exclude-from-classmap": [
+      "/tests/"
+    ]
   }
 }
