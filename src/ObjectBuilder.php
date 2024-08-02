@@ -15,6 +15,11 @@ use Throwable;
 class ObjectBuilder
 {
     /**
+     * @var bool
+     */
+    protected static $alwaysNewInstance = true;
+
+    /**
      * @var static[]
      */
     private static $instances = [];
@@ -22,15 +27,16 @@ class ObjectBuilder
     /**
      * @param string $class
      * @param array $attributes
+     * @param bool $alwaysNewInstance
      * @return BaseObject
      * @throws BuilderException
      * @author Hollis
      */
-    public static function build(string $class, array $attributes = []): BaseObject
+    public static function build(string $class, array $attributes = [], bool $alwaysNewInstance = true): BaseObject
     {
         try {
             $key = sprintf("%s_%s", $class, md5(json_encode($attributes)));
-            if (!isset(static::$instances[$key])) {
+            if ($alwaysNewInstance || !isset(static::$instances[$key])) {
                 $classReflection = new \ReflectionClass($class);
                 static::$instances[$key] = $classReflection->newInstance();
             }
