@@ -11,6 +11,7 @@ trait ObjectAttributesTrait
     public function getAttributes($names = null): array
     {
         $values = [];
+
         if ($names === null) {
             $names = $this->attributes();
         }
@@ -22,12 +23,13 @@ trait ObjectAttributesTrait
 
     /**
      * @param $values
+     * @param bool $onlyDefined
      */
-    public function setAttributes($values) {
+    public function setAttributes($values, bool $onlyDefined = true) {
         if (is_array($values)) {
             $attributes = array_flip($this->attributes());
             foreach ($values as $name => $value) {
-                if (isset($attributes[$name])) {
+                if (!$onlyDefined || isset($attributes[$name])) {
                     $this->$name = $value;
                 }
             }
