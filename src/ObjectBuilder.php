@@ -14,10 +14,6 @@ use Throwable;
  */
 class ObjectBuilder
 {
-    /**
-     * @var bool
-     */
-    protected static $alwaysNewInstance = true;
 
     /**
      * @var static[]
