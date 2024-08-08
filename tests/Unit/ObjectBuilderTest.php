@@ -40,14 +40,11 @@ class ObjectBuilderTest extends TestCase
     public function testObject02()
     {
         $baseObject = HUser::build();
-        $baseObject1 = HUser::build();
 
-        $baseObject->id = 1;
-        $baseObject->username = '张三';
+        $baseObject->id = 2;
+        $baseObject->username = '李四';
+        $baseObject->grade = '一年级';
 
-        $baseObject1->id = 2;
-        $baseObject1->username = '李四';
-
-        $this->assertTrue($baseObject->id === $baseObject1->id);
+        $this->assertTrue($baseObject->username === '一年级:李四');
     }
 }

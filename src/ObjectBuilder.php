@@ -41,7 +41,7 @@ class ObjectBuilder
             $objectBuilder = static::$instances[$key];
 
             if (!empty($attributes)) {
-                $objectBuilder->setAttributes($attributes, false);
+                $objectBuilder->setAttributes($attributes);
             }
 
             return $objectBuilder;
