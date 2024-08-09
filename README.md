@@ -26,6 +26,31 @@ $user = HUser::build([
 
 //get username
 var_dump($user->username);
+
+//setter
+
+class HUser extends HObject
+{
+    public $id;
+
+    public $username;
+
+    //use setter
+    public function setGrade($value)
+    {
+        $this->username = $value . ':' . $this->username;
+    }
+}
+
+$user = HUser::build([
+    'id' => 2,
+    'username' => 'Hollis Ho'
+]);
+
+$user->grade = 'grade 1';
+//or
+$user->setGrade('grade 1');
+
 ```
 
 ## Unit Test
