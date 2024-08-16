@@ -24,11 +24,11 @@ class ObjectBuilder
      * @param string $class
      * @param array $attributes
      * @param bool $alwaysNewInstance
-     * @return BaseObject
+     * @return HObject
      * @throws BuilderException
      * @author Hollis
      */
-    public static function build(string $class, array $attributes = [], bool $alwaysNewInstance = true): BaseObject
+    public static function build(string $class, array $attributes = [], bool $alwaysNewInstance = true): HObject
     {
         try {
             $key = sprintf("%s_%s", $class, md5(json_encode($attributes)));
@@ -37,7 +37,7 @@ class ObjectBuilder
                 static::$instances[$key] = $classReflection->newInstance();
             }
 
-            /** @var BaseObject $objectBuilder */
+            /** @var HObject $objectBuilder */
             $objectBuilder = static::$instances[$key];
 
             if (!empty($attributes)) {
