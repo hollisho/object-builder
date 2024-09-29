@@ -2,6 +2,7 @@
 
 namespace hollisho\objectbuilder;
 
+use hollisho\objectbuilder\Exceptions\BuilderException;
 use hollisho\objectbuilder\Traits\ObjectAttributesTrait;
 
 /**
@@ -22,11 +23,12 @@ class HObject extends BaseObject
 
     /**
      * @param array $attributes
-     * @return HObject
-     * @throws Exceptions\BuilderException
+     * @param bool $initConstructArgs
+     * @return object
+     * @throws BuilderException
      */
-    public static function build(array $attributes = []): HObject
+    public static function build(array $attributes = [], bool $initConstructArgs = false): object
     {
-        return ObjectBuilder::build(static::class, $attributes);
+        return ObjectBuilder::build(static::class, $attributes, true, $initConstructArgs);
     }
 }
