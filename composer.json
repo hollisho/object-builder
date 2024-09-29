@@ -21,7 +21,8 @@
   },
   "require": {
     "php": ">=7.2",
-    "ext-json": "*"
+    "ext-json": "*",
+    "hollisho/php-helpers": "^1.1"
   },
   "autoload": {
     "psr-4": {

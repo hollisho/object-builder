@@ -13,12 +13,12 @@ class ObjectBuilderTest extends TestCase
         $object01 = ObjectBuilder::build(User::class, [
             'id' => 1,
             'username' => 'Hollis'
-        ]);
+        ], true, true);
 
         $object02 = ObjectBuilder::build(User::class, [
             'id' => 10086,
             'username' => 'Hollis Ho'
-        ]);
+        ], true, true);
 
         $this->assertNotSame($object01, $object02);
     }
