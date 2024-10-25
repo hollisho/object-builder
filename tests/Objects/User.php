@@ -8,9 +8,30 @@ class User extends BaseObject
 {
     use ObjectAttributesTrait;
 
-    public $id;
+    private $id;
 
-    public $username;
+    private $username;
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    public function getUsername(): string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
 
     public function __construct(int $id, string $username)
     {

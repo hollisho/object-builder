@@ -4,6 +4,23 @@ namespace hollisho\objectbuilder\Traits;
 
 trait ObjectAttributesTrait
 {
+
+    /**
+     * @var int
+     */
+    private $filter = \ReflectionProperty::IS_PUBLIC | \ReflectionProperty::IS_PROTECTED;
+
+    public function getFilter(): int
+    {
+        return $this->filter;
+    }
+
+    public function setFilter(int $filter): void
+    {
+        $this->filter = $filter;
+    }
+
+
     /**
      * @param null $names
      * @return array
@@ -66,7 +83,7 @@ trait ObjectAttributesTrait
     {
         $class = new \ReflectionClass($this);
         $names = [];
-        foreach ($class->getProperties() as $property) {
+        foreach ($class->getProperties($this->filter) as $property) {
             if (!$property->isStatic()) {
                 $names[] = $property->getName();
             }

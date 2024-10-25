@@ -20,7 +20,7 @@ class ObjectBuilderTest extends TestCase
             'username' => 'Hollis Ho'
         ], true, true);
 
-        $this->assertNotSame($object01, $object02);
+        $this->assertNotSame($object01->id, $object02->id);
     }
 
     public function testObject()
