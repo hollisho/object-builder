@@ -47,4 +47,12 @@ class ObjectBuilderTest extends TestCase
 
         $this->assertTrue($baseObject->username === '一年级:李四');
     }
+
+    public function testObject03()
+    {
+        $user = HUser::build()->id(2)->username('hollis');
+
+        $this->assertTrue($user->id === 2);
+        $this->assertTrue($user->username === 'hollis');
+    }
 }

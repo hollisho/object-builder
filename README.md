@@ -53,6 +53,14 @@ $user->setGrade('grade 1');
 
 ```
 
+## Chaining Method Calls
+
+```php
+$user = HUser::build()->id(2)->username('hollis');
+echo $user->id; // 2
+echo $user->username; // hollis
+```
+
 ## Unit Test
 
 1. 执行指定目录所有用例

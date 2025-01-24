@@ -63,7 +63,7 @@ class ObjectBuilder
 
             return $objectBuilder;
         } catch (Throwable $throwable) {
-            throw new BuilderException('Cant build object', 0, $throwable);
+            throw new BuilderException('Cant build object:' . $throwable->getMessage(), 0, $throwable);
         }
     }
 

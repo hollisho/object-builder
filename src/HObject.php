@@ -21,6 +21,15 @@ class HObject extends BaseObject
 {
     use ObjectAttributesTrait;
 
+    public function __call($name, $params)
+    {
+        if ($this->hasAttribute($name)) {
+            $this->setAttribute($name, $params[0]);
+        }
+
+        return $this;
+    }
+
     /**
      * @param array $attributes
      * @param bool $initConstructArgs

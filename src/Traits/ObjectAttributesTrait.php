@@ -83,7 +83,7 @@ trait ObjectAttributesTrait
     {
         $class = new \ReflectionClass($this);
         $names = [];
-        foreach ($class->getProperties($this->filter) as $property) {
+        foreach ($class->getProperties($this->getFilter()) as $property) {
             if (!$property->isStatic()) {
                 $names[] = $property->getName();
             }
