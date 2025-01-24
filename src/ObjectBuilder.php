@@ -27,7 +27,7 @@ class ObjectBuilder
      * @param array $attributes
      * @param bool $alwaysNewInstance
      * @param bool $initConstructArgs
-     * @return object|null
+     * @return static|null
      * @throws BuilderException
      * @author Hollis
      */
