@@ -3,7 +3,6 @@
 namespace hollisho\objectbuilder;
 
 
-use hollisho\helpers\ArrayHelper;
 use hollisho\objectbuilder\Exceptions\BuilderException;
 use ReflectionClass;
 use Throwable;
@@ -49,7 +48,7 @@ class ObjectBuilder
                 $args = [];
                 foreach ($parameters as $parameter) {
                     $defaultValue = $parameter->isDefaultValueAvailable() ? $parameter->getDefaultValue() : null;
-                    $args[$parameter->getName()] = ArrayHelper::getValue($attributes, $parameter->getName(), $defaultValue);
+                    $args[$parameter->getName()] = $attributes[$parameter->getName()] ?? $defaultValue;
                 }
 
                 $objectBuilder = $classReflection->newInstanceArgs($args);
