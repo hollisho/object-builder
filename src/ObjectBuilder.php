@@ -30,7 +30,7 @@ class ObjectBuilder
      * @throws BuilderException
      * @author Hollis
      */
-    public static function build(string $class, array $attributes = [], bool $alwaysNewInstance = true, bool $initConstructArgs = false): ?object
+    public static function build(string $class, array $attributes = [], bool $alwaysNewInstance = true, bool $initConstructArgs = false)
     {
         try {
             $key = sprintf("%s_%s", $class, md5(json_encode($attributes)));

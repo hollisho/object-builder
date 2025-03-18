@@ -15,7 +15,7 @@ trait ObjectAttributesTrait
         return $this->filter;
     }
 
-    public function setFilter(int $filter): void
+    public function setFilter(int $filter)
     {
         $this->filter = $filter;
     }

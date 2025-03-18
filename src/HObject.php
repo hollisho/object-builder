@@ -21,7 +21,7 @@ class HObject extends BaseObject
 {
     use ObjectAttributesTrait;
 
-    public function __call($name, $params)
+    public function __call(string $name, array $params)
     {
         if ($this->hasAttribute($name)) {
             $this->setAttribute($name, $params[0]);
@@ -33,10 +33,10 @@ class HObject extends BaseObject
     /**
      * @param array $attributes
      * @param bool $initConstructArgs
-     * @return static|null
+     * @return ObjectBuilder|null
      * @throws BuilderException
      */
-    public static function build(array $attributes = [], bool $initConstructArgs = false): ?object
+    public static function build(array $attributes = [], bool $initConstructArgs = false)
     {
         return ObjectBuilder::build(static::class, $attributes, true, $initConstructArgs);
     }

@@ -17,7 +17,7 @@ class User extends BaseObject
         return $this->id;
     }
 
-    public function setId(int $id): void
+    public function setId(int $id)
     {
         $this->id = $id;
     }
@@ -27,7 +27,7 @@ class User extends BaseObject
         return $this->username;
     }
 
-    public function setUsername(string $username): void
+    public function setUsername(string $username)
     {
         $this->username = $username;
     }
