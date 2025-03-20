@@ -33,7 +33,7 @@ class HObject extends BaseObject
     /**
      * @param array $attributes
      * @param bool $initConstructArgs
-     * @return ObjectBuilder|null
+     * @return static|null
      * @throws BuilderException
      */
     public static function build(array $attributes = [], bool $initConstructArgs = false)
